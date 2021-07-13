@@ -1,0 +1,95 @@
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(179, 154, 230); */
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    align-items: center;
+}
+#timerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(179, 154, 230);
+    margin: 8px;
+    padding: 10px;
+    border-radius: 10px; 
+    width: 90%;    
+}
+
+h1{
+    margin-bottom: 2px;
+    
+}
+
+h3{
+    margin-top: 1px;
+    color: indigo;
+}
+
+button{
+    background-color: lightgray;
+    padding: 5px 10px;
+}
+
+#pomoTimer{
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+#timerStartButton{
+    width: 30%;
+    height: 35px;
+}
+
+#taskInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 20px 20px;
+    padding: 5px;
+    width: 80%;
+}
+
+#inputField{
+    width: 80%
+    
+}
+
+#addTaskButton{
+    width: 20%;
+    flex: end;
+}
+
+.taskListTitle{
+    border-top: 2px double indigo ;
+    border-bottom: 2px double indigo;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 3px;
+}
+
+
+
+#tasksToDoTable {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.checkBox {
+    width: 5%;
+}
+
+.icon {
+   width: 5%;
+}
+
+.iconImg {
+    height: 20px;
+}
+
+.task {
+    width: 80%;
+    text-align: left;
+}

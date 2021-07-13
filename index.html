@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PomoOnTask</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./jscripts/scripts.js" defer></script>
+</head>
+<body>
+<div id="mainContainer">
+    <div id="timerContainer">
+        <h1>PomoOnTask</h1>
+        <h3>Pomodoro Timer & Task Manager</h3>
+
+        <div id="pomoTimer">
+            25:00   
+        </div>
+
+        <button id="timerStartButton"> START </button>
+    </div>
+
+
+    <div class="taskListTitle">
+        TASKS TO DO
+    </div>
+
+    <div id=taskInput>
+        <input type="text" name="taskInput" id="inputField" placeholder="enter task description" >
+        <button id="addTaskButton">ADD TASK</button>
+    </div>
+
+    <table id="tasksToDoTable">
+        <tr>
+            <td class="checkBox"><input type="checkbox" name="checkDone" ></td>
+            <td class="task">description</td>
+            <td class="icon"><img class="iconImg" src="./images/editIcon.png" alt="edit"></td>
+            <td class="icon"><img class="iconImg" src="./images/deleteIcon.png" alt="delete"></td>
+
+        </tr>
+    </table>
+
+    <div class="taskListTitle">
+        TASKS COMPLETE
+    </div>
+
+    
+
+    
+
+</div>
+    
+</body>
+</html>
