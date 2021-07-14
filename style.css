@@ -14,6 +14,7 @@
     margin: 8px;
     padding: 10px;
     border-radius: 10px; 
+    border: 5px solid indigo;
     width: 90%;    
 }
 
@@ -37,12 +38,39 @@ button{
     margin-bottom: 20px;
 }
 
-#timerStartButton{
-    width: 30%;
-    height: 35px;
+#timerButtonsPanel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+#buttonRow{
+    display: flex;
+    align-items: center;
 }
 
-#taskInput{
+.startButton{
+    width: 200px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.startButton:hover{
+    background-color: darkgray;
+}
+
+.timerButton{
+    width: 100px;
+    height: 35px;
+    margin: 5px;
+}
+
+.timerButton:hover{
+    background-color: darkgray;
+}
+
+#taskInputField{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -51,7 +79,7 @@ button{
     width: 80%;
 }
 
-#inputField{
+#taskInput{
     width: 80%
     
 }
@@ -77,6 +105,7 @@ button{
     margin-bottom: 20px;
 }
 
+
 .checkBox {
     width: 5%;
 }
@@ -92,4 +121,14 @@ button{
 .task {
     width: 80%;
     text-align: left;
+}
+
+#bannerImage {
+    width: 450px;
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    margin-top: 50px;
+    align-items: center;
+    border: 3px solid indigo;
 }

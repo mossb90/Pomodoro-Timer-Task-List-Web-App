@@ -5,44 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PomoOnTask</title>
+    <link rel="icon" href="./images/timerIcon.png">
     <link rel="stylesheet" href="./style.css">
     <script src="./jscripts/scripts.js" defer></script>
 </head>
-<body>
+<body onload="resetTimer()"> 
 <div id="mainContainer">
     <div id="timerContainer">
         <h1>PomoOnTask</h1>
         <h3>Pomodoro Timer & Task Manager</h3>
 
         <div id="pomoTimer">
-            25:00   
+            25:00
+        </div id="timerButtonsPanel">
+            <div id="buttonRow">
+                <button class="startButton" onclick="startTimer()"> START </button>
+            </div>
+            <div id="buttonRow">
+                <button class="timerButton" onclick="pauseTimer()"> PAUSE </button>
+                <button class="timerButton" onclick="fastForwardTimer()"> <img class="iconImg" src="./images/fastForwardIcon.png" alt="fast forward"> </button>
+                <button class="timerButton" onclick="resetTimer()"> RESET </button>
+            </div>
         </div>
-
-        <button id="timerStartButton"> START </button>
-    </div>
-
+        
 
     <div class="taskListTitle">
         TASKS TO DO
     </div>
 
-    <div id=taskInput>
-        <input type="text" name="taskInput" id="inputField" placeholder="enter task description" >
-        <button id="addTaskButton">ADD TASK</button>
+    <div id=taskInputField>
+        <input type="text" name="taskInput" id="taskInput" placeholder="enter task description" >
+        <button id="addTaskButton" onclick="createNewTask()">ADD TASK</button>
     </div>
 
     <table id="tasksToDoTable">
-        <tr>
-            <td class="checkBox"><input type="checkbox" name="checkDone" ></td>
-            <td class="task">description</td>
-            <td class="icon"><img class="iconImg" src="./images/editIcon.png" alt="edit"></td>
-            <td class="icon"><img class="iconImg" src="./images/deleteIcon.png" alt="delete"></td>
-
+        
+        <tr class = taskRow>
+            <td class="checkBox"></td>
+            <td class="task"></td>
+            <td class="icon"></td>
+            <td class="icon"></td>
         </tr>
+
     </table>
 
     <div class="taskListTitle">
         TASKS COMPLETE
+    </div>
+
+    <div >
+        <img id="bannerImage" src="./images/Pomodoro-Technique.jpeg" alt="">
     </div>
 
     
