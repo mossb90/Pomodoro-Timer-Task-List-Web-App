@@ -38,6 +38,14 @@ button{
     margin-bottom: 20px;
 }
 
+#currentPhase{
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    color: black;
+
+}
+
 #timerButtonsPanel{
     display: flex;
     flex-direction: row;

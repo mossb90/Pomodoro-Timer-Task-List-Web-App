@@ -2,14 +2,15 @@
 var timerOn =  false;
 var myTimer;
 var PomoCycle = {
-    pomoWork: "25:00",
-    shortBreak: "5:00",
-    longBreak: "30:00",
+    pomoWork: "25:01",
+    shortBreak: "5:01",
+    longBreak: "30:01",
     longBreakInterval: 4   //number of work pomoWork intervals before long break
 }
 var numWorkCycles;  // Number of 25 min work cycles
 var numPomoCycles;  // Number of Full Pomodoro Cycles thru full break
-var timerContainer = document.querySelector("#timerContainer")
+var timerContainer = document.querySelector("#timerContainer");
+// var currentPhase = document.getElementById("#currentPhase");
 
 function startTimer() {
     if (!timerOn){
@@ -29,8 +30,8 @@ function runTimer() {
 
     if (timer !== "0:00") {
       //  increment  counters to track cycles
-      var timeInSecond = convertToSeconds(timer); // 10
-      timeInSecond--; // 9
+      var timeInSecond = convertToSeconds(timer); 
+      timeInSecond--; 
       var newTime = convertBackToString(timeInSecond);
       // console.log(newTime);
       document.querySelector("#pomoTimer").innerText = newTime;
@@ -59,6 +60,7 @@ function resetTimer() {
 }
 
 function  makeTransition() {
+    clearTimeout(myTimer);
     console.log("entered makeTransition function");
     //manages transition from work to break
     if (currentPhase === "work"){        
@@ -66,6 +68,7 @@ function  makeTransition() {
         if (numWorkCycles < 4){
             currentPhase = "shortBreak"
             console.log("started shortBreak")
+            // currentPhase.innerText = "Short Break";
             document.querySelector("#pomoTimer").innerText = PomoCycle.shortBreak;
             timerContainer.style.backgroundColor = "rgb(250, 250, 210)";
         }
