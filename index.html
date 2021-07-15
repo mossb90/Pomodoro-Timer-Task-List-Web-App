@@ -27,6 +27,7 @@
         <div id="buttonRow">
             <button class="timerButton" onclick="pauseTimer()"> PAUSE </button>
             <button class="timerButton" onclick="fastForwardTimer()"> <img class="iconImg" src="./images/fastForwardIcon.png" alt="fast forward"> </button>
+            <button class="timerButton" onclick="addTimerMinute()"> <img class="iconImg" src="./images/plusIcon.png " alt="add minute"> </button>
             <button class="timerButton" onclick="resetTimer()"> RESET </button>
         </div>
     </div>   
@@ -43,17 +44,17 @@
     <table id="tasksToDoTable">
         
         <tr class = taskRow>
-            <td class="checkBox"></td>
-            <td class="task"></td>
-            <td class="icon"></td>
-            <td class="icon"></td>
+            <td class="checkBox"><input type="checkbox" onclick="TaskComplete(this)"></td>
+            <td class="task">Register for ViT CyberSecurity Course</td>
+            <td class="icon"><img class="editIconImg" src="./images/editIcon.png" alt="edit"></td>
+            <td class="icon"><img class="deleteIconImg" src="./images/deleteIcon.png" alt="delete"></td>
         </tr>
 
     </table>
 
-    <div class="taskListTitle">
+    <!-- <div class="taskListTitle">
         TASKS COMPLETE
-    </div>
+    </div> -->
 
     <div >
         <img id="bannerImage" src="./images/Pomodoro-Technique.png" alt="Pomodoro Technique Graphic">

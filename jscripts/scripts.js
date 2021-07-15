@@ -49,6 +49,16 @@ function fastForwardTimer() {
     makeTransition();
 }
 
+function addTimerMinute(){
+    const timer = document.querySelector("#pomoTimer").innerText;
+
+    var timeInSecond = convertToSeconds(timer); 
+    timeInSecond= timeInSecond + 60; 
+    var newTime = convertBackToString(timeInSecond);
+    // console.log(newTime);
+    document.querySelector("#pomoTimer").innerText = newTime;
+}
+
 function resetTimer() {
     console.log("entered resetTimer()")
     document.querySelector("#pomoTimer").innerText = "25:00";
@@ -143,7 +153,6 @@ function createNewTask() {
         newTd1.appendChild(addTd1CheckBox);
         
 
-
         var newTd2= document.createElement("td");
         newTd2.innerText = inputValue;
         
@@ -151,7 +160,7 @@ function createNewTask() {
         newTd3.classList.add("icon");
         const addTd3Image = document.createElement("img");
         newTd3.appendChild(addTd3Image);
-        addTd3Image.classList.add("iconImg");
+        addTd3Image.classList.add("editIconImg");
         addTd3Image.setAttribute("src", "./images/editIcon.png");
 
 
@@ -159,7 +168,7 @@ function createNewTask() {
         newTd4.classList.add("icon");
         const addTd4Image = document.createElement("img");
         newTd4.appendChild(addTd4Image);
-        addTd4Image.classList.add("iconImg");
+        addTd4Image.classList.add("deleteIconImg");
         addTd4Image.setAttribute("src", "./images/deleteIcon.png");
 
         //add to the table
@@ -170,6 +179,9 @@ function createNewTask() {
         newTr.appendChild(newTd3);
         newTr.appendChild(newTd4);
         inputField.value = "";
+
+        activateDeleteListeners();
+        activateCheckBoxListeners();
     }
 }
 
@@ -178,5 +190,18 @@ function TaskComplete(checkbox) {
 }
 
 function deleteTask() {
+    var tr = this.parentElement.parentElement;
+    tr.parentElement.removeChild(tr);
+}
 
+function activateDeleteListeners() {
+    var deleteButtons = document.querySelectorAll('.deleteIconImg');
+
+    for (let x = 0; x < deleteButtons.length; x++){
+        deleteButtons[x].addEventListener('click', deleteTask);
+    }
+}
+
+function activateCheckBoxListeners() {
+    var  checkDone = document.query
 }
