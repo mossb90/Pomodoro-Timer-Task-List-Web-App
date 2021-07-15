@@ -2,6 +2,8 @@
 var timerOn =  false;
 var myTimer;
 var PomoCycle = {
+    // variables set to +1 sec  since time decrement  of timeInSecond
+    // in runTimer() occurs before time update
     pomoWork: "25:01",
     shortBreak: "5:01",
     longBreak: "30:01",
@@ -10,7 +12,6 @@ var PomoCycle = {
 var numWorkCycles;  // Number of 25 min work cycles
 var numPomoCycles;  // Number of Full Pomodoro Cycles thru full break
 var timerContainer = document.querySelector("#timerContainer");
-// var currentPhase = document.getElementById("#currentPhase");
 
 function startTimer() {
     if (!timerOn){
@@ -51,6 +52,7 @@ function fastForwardTimer() {
 function resetTimer() {
     console.log("entered resetTimer()")
     document.querySelector("#pomoTimer").innerText = "25:00";
+    document.querySelector("#currentPhase").innerText = "We Can Do Hard Things!";
     timerContainer.style.backgroundColor = "rgb(179, 154, 230)";
     clearTimeout(myTimer);
     timerOn = false;
@@ -68,14 +70,15 @@ function  makeTransition() {
         if (numWorkCycles < 4){
             currentPhase = "shortBreak"
             console.log("started shortBreak")
-            // currentPhase.innerText = "Short Break";
             document.querySelector("#pomoTimer").innerText = PomoCycle.shortBreak;
+            document.querySelector("#currentPhase").innerText = "Take a Short Break";
             timerContainer.style.backgroundColor = "rgb(250, 250, 210)";
         }
         else {
             currentPhase = "longBreak"
             console.log("started longBreak");
             document.querySelector("#pomoTimer").innerText = PomoCycle.longBreak;
+            document.querySelector("#currentPhase").innerText = "Enjoy a Well Deserved Long Break!";
             timerContainer.style.backgroundColor = "rgb(214, 102, 121)";
             
         }
@@ -87,12 +90,14 @@ function  makeTransition() {
         numWorkCycles = 0;
         currentPhase = "work";
         document.querySelector("#pomoTimer").innerText = PomoCycle.pomoWork;
+        document.querySelector("#currentPhase").innerText = "We Can Do Hard Things!";
         timerContainer.style.backgroundColor = "rgb(179, 154, 230)";
 
     // manages transition from shortBreak back to work
     } else {
         currentPhase = "work";
         document.querySelector("#pomoTimer").innerText = PomoCycle.pomoWork;
+        document.querySelector("#currentPhase").innerText = "We Can Do Hard Things!";
         timerContainer.style.backgroundColor = "rgb(179, 154, 230)";
         runTimer();
     }
@@ -111,7 +116,6 @@ function convertBackToString(timeInSecond) {
     var seconds = timeInSecond % 60; // 9
     if (seconds < 10) {
         seconds = "0" + seconds;
-        //console.log(seconds);
     }
     // tack them together with a colon (:)
     var timeString = minutes + ":" + seconds; // 0:09
@@ -130,16 +134,19 @@ function createNewTask() {
         var newTr=document.createElement("tr");
         newTr.classList.add("taskRow");
 
+
         var newTd1= document.createElement("td");
         newTd1.classList.add("checkBox");
         const addTd1CheckBox = document.createElement("input");
-        newTd1.appendChild(addTd1CheckBox);
         addTd1CheckBox.setAttribute("type", "checkbox");
+        addTd1CheckBox.setAttribute("onclick", TaskComplete(this));
+        newTd1.appendChild(addTd1CheckBox);
+        
 
 
         var newTd2= document.createElement("td");
         newTd2.innerText = inputValue;
-
+        
         var newTd3= document.createElement("td");
         newTd3.classList.add("icon");
         const addTd3Image = document.createElement("img");
@@ -164,4 +171,12 @@ function createNewTask() {
         newTr.appendChild(newTd4);
         inputField.value = "";
     }
+}
+
+function TaskComplete(checkbox) {
+    console.log("checked task complete")
+}
+
+function deleteTask() {
+
 }
